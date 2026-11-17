@@ -60,6 +60,8 @@ main, .hero-body, .stack, .arc, .work, .more, .about, .contact {
   padding: 5px 11px;
   line-height: 1.2;
 }
+.stack-learning { margin-top: 20px; color: var(--muted); font-size: 14.5px; }
+.stack-learning strong { color: var(--text); font-weight: 600; }
 
 /* ---------- NAV ---------- */
 .nav {
