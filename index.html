@@ -86,13 +86,13 @@
         <span class="card-stage">02 · Build</span>
         <h3>local-document-assistant</h3>
       </div>
-      <p class="card-problem">Answer questions about private PDFs without anything leaving the machine.</p>
+      <p class="card-problem">A multi-agent assistant over private PDFs — nothing leaves the machine.</p>
       <div class="stats">
         <div class="stat"><b>100%</b><span>offline — no cloud call</span></div>
-        <div class="stat"><b>Per-page</b><span>citations on every answer</span></div>
-        <div class="stat"><b>Abstains</b><span>when the docs don't support it</span></div>
+        <div class="stat"><b>Hybrid</b><span>BM25 + dense + RRF retrieval</span></div>
+        <div class="stat"><b>Q4 = Q8</b><span>identical RAG quality, 42% smaller</span></div>
       </div>
-      <p class="card-note">Fully-offline RAG that ships its own serving layer (llama.cpp). Grounded answers with a relevance gate that refuses to guess. Verified end-to-end against the local model, fully offline.</p>
+      <p class="card-note">A triage agent routes each request (answer / summarize / extract-images) through hybrid retrieval to a grounded, page-cited answer, or abstains. Multi-turn memory, prompt-injection defense, a web chat UI, and a measured eval suite — including a quantization-vs-RAG-quality study.</p>
       <div class="card-links">
         <a href="https://github.com/Jashwanthjash001/local-document-assistant">Repo →</a>
         <a href="https://github.com/Jashwanthjash001/local-document-assistant/blob/main/serving/docs/quantization-case-study.md">Case study →</a>
