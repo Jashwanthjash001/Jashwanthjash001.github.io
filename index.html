@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jashwanth Gowda B R — AI Engineer</title>
+  <meta name="description" content="AI Engineer building local and edge LLM systems end to end — quantize, serve, build on, fine-tune, and let agents operate the stack.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <nav class="nav">
+    <span class="nav-name">JGBR</span>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a class="nav-resume" href="resume.pdf">Résumé ↓</a>
+    </div>
+  </nav>
+
+  <div class="hero-body">
+    <p class="eyebrow">AI Engineer · Bengaluru, IN</p>
+    <h1>I build local &amp; edge LLM systems — end to end.</h1>
+    <p class="lede">
+      Quantize a model to run on hardware you already own, serve it, build real apps on it,
+      fine-tune it, and wire agents on top. Most of my recent work runs <strong>fully on-device</strong>
+      — no cloud API, no data leaving the machine.
+    </p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#work">See the work</a>
+      <a class="btn" href="resume.pdf">Download résumé</a>
+    </div>
+    <div class="hero-contacts">
+      <a href="https://github.com/Jashwanthjash001">GitHub</a>
+      <a href="https://www.linkedin.com/in/jashgowda001/">LinkedIn</a>
+      <a href="mailto:jashwanthjash0920@gmail.com">Email</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- LIFECYCLE ARC -->
+  <section class="arc" aria-label="The local-LLM lifecycle">
+    <h2 class="section-title">The local-LLM lifecycle, as projects</h2>
+    <p class="section-sub">Each project is one stage of taking an LLM from raw weights to something an agent can drive — on your own hardware.</p>
+    <div class="arc-flow">
+      <div class="arc-step"><span class="arc-num">1</span><strong>Quantize</strong><span>Shrink an 8B model to fit a laptop</span></div>
+      <div class="arc-arrow" aria-hidden="true">→</div>
+      <div class="arc-step"><span class="arc-num">2</span><strong>Build</strong><span>A real RAG app on that local model</span></div>
+      <div class="arc-arrow" aria-hidden="true">→</div>
+      <div class="arc-step"><span class="arc-num">3</span><strong>Serve</strong><span>Measure latency vs throughput at scale</span></div>
+      <div class="arc-arrow" aria-hidden="true">→</div>
+      <div class="arc-step"><span class="arc-num">4</span><strong>Operate</strong><span>An agent drives the whole stack via MCP</span></div>
+    </div>
+  </section>
+
+  <!-- FLAGSHIP PROJECTS -->
+  <section id="work" class="work">
+    <h2 class="section-title">Flagship projects</h2>
+
+    <article class="card">
+      <div class="card-head">
+        <span class="card-stage">01 · Quantize</span>
+        <h3>edge-ai-client</h3>
+      </div>
+      <p class="card-problem">Run an 8B model on a 16&nbsp;GB laptop, and measure what you give up.</p>
+      <div class="stats">
+        <div class="stat"><b>~2×</b><span>faster decode (Q4 vs Q8)</span></div>
+        <div class="stat"><b>42%</b><span>smaller on disk</span></div>
+        <div class="stat"><b>8.05 vs 7.95</b><span>perplexity — near-lossless</span></div>
+      </div>
+      <p class="card-note">Quantization study of Llama&nbsp;3.1&nbsp;8B: Q4_K_M vs Q8_0 on Apple Metal, with speed, size, and quality (perplexity) all measured — not hand-waved.</p>
+      <div class="card-links">
+        <a href="https://github.com/Jashwanthjash001/edge-ai-client">Repo →</a>
+        <a href="https://github.com/Jashwanthjash001/edge-ai-client/blob/main/docs/case-study.md">Case study →</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <span class="card-stage">02 · Build</span>
+        <h3>local-document-assistant</h3>
+      </div>
+      <p class="card-problem">Answer questions about private PDFs without anything leaving the machine.</p>
+      <div class="stats">
+        <div class="stat"><b>100%</b><span>offline — no cloud call</span></div>
+        <div class="stat"><b>Per-page</b><span>citations on every answer</span></div>
+        <div class="stat"><b>Abstains</b><span>when the docs don't support it</span></div>
+      </div>
+      <p class="card-note">Fully-offline RAG that ships its own serving layer (llama.cpp). Grounded answers with a relevance gate that refuses to guess. Verified end-to-end against the local model, fully offline.</p>
+      <div class="card-links">
+        <a href="https://github.com/Jashwanthjash001/local-document-assistant">Repo →</a>
+        <a href="https://github.com/Jashwanthjash001/local-document-assistant/blob/main/serving/docs/quantization-case-study.md">Case study →</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <span class="card-stage">03 · Serve</span>
+        <h3>llm-serving-optimization-lab</h3>
+      </div>
+      <p class="card-problem">Find the throughput ceiling of a vLLM deployment, and explain the curve.</p>
+      <div class="stats">
+        <div class="stat"><b>238 tok/s</b><span>at 8 concurrent (8× single-user)</span></div>
+        <div class="stat"><b>The knee</b><span>= server's max_num_seqs</span></div>
+        <div class="stat"><b>GPU 100%</b><span>saturation confirmed</span></div>
+      </div>
+      <p class="card-note">Benchmarked Qwen2.5-14B-AWQ on an RTX&nbsp;4060&nbsp;Ti with a custom async streaming client. Throughput scales linearly to the batch limit, then latency explodes while throughput flatlines — recovered the server's config purely from external measurements.</p>
+      <div class="card-links">
+        <a href="https://github.com/Jashwanthjash001/llm-serving-optimization-lab">Repo →</a>
+        <a href="https://github.com/Jashwanthjash001/llm-serving-optimization-lab/blob/main/results/README.md">Results write-up →</a>
+      </div>
+    </article>
+
+    <article class="card card-capstone">
+      <div class="card-head">
+        <span class="card-stage">04 · Operate · capstone</span>
+        <h3>llm-lifecycle-mcp</h3>
+      </div>
+      <p class="card-problem">Let an AI agent operate the whole local-LLM stack through one tool interface.</p>
+      <div class="stats">
+        <div class="stat"><b>10 tools</b><span>quantize · eval · serve · RAG</span></div>
+        <div class="stat"><b>3 projects</b><span>wired via config, no copied code</span></div>
+        <div class="stat"><b>Guardrailed</b><span>read-only prod · allow-lists</span></div>
+      </div>
+      <p class="card-note">An MCP server that ties the three projects above together: an agent can quantize a model, measure its quality, benchmark it, read a live serving endpoint, and query a RAG app — one job at a time, with the production endpoint strictly read-only.</p>
+      <div class="card-links">
+        <a href="https://github.com/Jashwanthjash001/llm-lifecycle-mcp">Repo →</a>
+      </div>
+    </article>
+  </section>
+
+  <!-- MORE -->
+  <section class="more">
+    <h2 class="section-title">Also in the toolbox</h2>
+    <div class="more-grid">
+      <a class="mini" href="https://github.com/Jashwanthjash001/finetuning-lab">
+        <h4>finetuning-lab</h4>
+        <p>LoRA fine-tune Llama&nbsp;3.2&nbsp;1B on Apple Silicon (MLX). Exact-match on a structured task: 15% → 100%.</p>
+      </a>
+      <a class="mini" href="https://github.com/Jashwanthjash001/llm-council">
+        <h4>llm-council</h4>
+        <p>Multi-model ensemble: three models answer, two judge, one auditable decision — prefers an honest <em>no decision</em> over false confidence.</p>
+      </a>
+      <a class="mini" href="https://github.com/Jashwanthjash001/sequence-agent">
+        <h4>sequence-agent</h4>
+        <p>Agentic outreach orchestrator — persistent state, deterministic guardrails, human handoff.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <h2 class="section-title">How I work</h2>
+    <div class="about-body">
+      <p>
+        I'm a software engineer focused on generative AI and LLM inference. Day to day I build agentic
+        pipelines, RAG systems, and serving infrastructure — and lately I've been pushing most of it
+        <strong>on-device</strong>, because that's where a lot of real teams actually need LLMs:
+        compliance, cost, and latency rule out sending data to a hosted model.
+      </p>
+      <p>
+        I like projects where I can measure the thing instead of guessing — a perplexity-vs-speed-vs-size
+        table, a latency-vs-throughput curve, a before/after exact-match number. My repos keep honest
+        status notes and real results, including the limitations.
+      </p>
+      <p class="learning">
+        <strong>Currently going deeper on:</strong> inference optimization (batching internals, KV-cache,
+        CUDA / kernel-level — <em>learning</em>), fine-tuning beyond toy tasks, and agent tooling via MCP.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <h2 class="section-title">Get in touch</h2>
+    <div class="contact-links">
+      <a href="mailto:jashwanthjash0920@gmail.com">jashwanthjash0920@gmail.com</a>
+      <a href="https://www.linkedin.com/in/jashgowda001/">LinkedIn</a>
+      <a href="https://github.com/Jashwanthjash001">GitHub</a>
+      <a href="resume.pdf">Résumé (PDF)</a>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>Built as a plain static site · hosted on GitHub Pages · <a href="https://github.com/Jashwanthjash001/Jashwanthjash001.github.io">source</a></p>
+</footer>
+
+</body>
+</html>
