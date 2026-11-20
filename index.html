@@ -16,6 +16,7 @@
   <nav class="nav">
     <span class="nav-name">JGBR</span>
     <div class="nav-links">
+      <a href="#experience">Experience</a>
       <a href="#work">Work</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
@@ -177,6 +178,33 @@
         <p>LoRA &amp; QLoRA fine-tune of Llama&nbsp;3.2&nbsp;1B on Apple Silicon (MLX). QLoRA trims base size ~71% and training memory ~41% at the same 100% exact-match.</p>
       </a>
     </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="exp">
+    <h2 class="section-title">Experience</h2>
+    <p class="section-sub">Where the patterns above come from — building agentic AI in production.</p>
+
+    <article class="exp-item">
+      <div class="exp-head">
+        <div>
+          <h3 class="exp-role">Software Engineer <span class="exp-sep">·</span> <span class="exp-co">Sustainability Economics</span></h3>
+          <p class="exp-meta">Generative AI &amp; LLM Engineering · Bengaluru, IN</p>
+        </div>
+        <span class="exp-date">Sep 2024 – Present</span>
+      </div>
+      <ul class="exp-list">
+        <li>Built a <strong>multi-agent orchestration system</strong> (LangChain + OpenAI SDK) coordinating extraction, validation, and web-completion agents with centralized state, task sequencing, and inter-agent messaging — served via FastAPI and Docker.</li>
+        <li>Shipped an <strong>agentic PDF extraction service</strong> (FastAPI) that parses complex and scanned documents — including borderless tables — with Docling layout detection + OCR at <strong>~92% field-extraction accuracy</strong>, fills target schemas via hybrid RAG (BM25 + dense), and exports to Excel; inputs/results persisted to AWS S3, containerized with Docker.</li>
+        <li>Implemented end-to-end <strong>RAG pipelines</strong> with vector-DB semantic search and document retrieval, plus iterative prompt engineering to improve output accuracy and groundedness.</li>
+        <li>Integrated <strong>Model Context Protocol (MCP)</strong> across agentic workflows for structured tool use and context management, improving reliability and action traceability.</li>
+        <li>Worked across <strong>AWS serverless</strong> (Lambda, S3, DynamoDB) building API-driven data pipelines behind FastAPI; hosted LLMs on GPU servers (vLLM, TensorRT) and ran a news-aggregation platform on EC2.</li>
+        <li>Engineered scalable web-crawling pipelines (Selenium, Scrapy, BeautifulSoup) feeding the downstream extraction and validation agents.</li>
+      </ul>
+      <div class="exp-tags">
+        <span>LangChain</span><span>OpenAI SDK</span><span>MCP</span><span>RAG</span><span>FastAPI</span><span>Docling · OCR</span><span>AWS</span><span>Docker</span><span>vLLM · TensorRT</span>
+      </div>
+    </article>
   </section>
 
   <!-- ABOUT -->
