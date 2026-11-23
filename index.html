@@ -127,13 +127,6 @@
         <div class="stat"><b>Q4 = Q8</b><span>identical RAG quality, 42% smaller</span></div>
       </div>
       <p class="card-note">A triage agent routes each request (answer / summarize / extract-images) through hybrid retrieval to a grounded, page-cited answer, or abstains. Multi-turn memory, prompt-injection defense, a web chat UI, and a measured eval suite — including a quantization-vs-RAG-quality study.</p>
-      <figure class="shot">
-        <video src="assets/doc-intelligence-agent-demo.mp4" poster="assets/doc-intelligence-agent-poster.png"
-               width="1360" height="768" autoplay muted loop playsinline preload="metadata"
-               aria-label="A run of the Document Intelligence Agent chat UI: a question is answered with page citations and an agent-step trace, then a second question is honestly abstained on.">
-        </video>
-        <figcaption>A run of the web chat UI — a grounded, page-cited answer with the agent-step trace, then an honest abstain when the documents don't cover it.</figcaption>
-      </figure>
       <div class="card-links">
         <a href="https://github.com/Jashwanthjash001/local-document-assistant">Repo →</a>
         <a href="https://github.com/Jashwanthjash001/local-document-assistant/blob/main/serving/docs/quantization-case-study.md">Case study →</a>
@@ -152,13 +145,6 @@
         <div class="stat"><b>GPU 100%</b><span>saturation confirmed</span></div>
       </div>
       <p class="card-note">Benchmarked Qwen2.5-14B-AWQ on an RTX&nbsp;4060&nbsp;Ti with a custom async streaming client. Throughput scales linearly to the batch limit, then latency explodes while throughput flatlines — recovered the server's config purely from external measurements.</p>
-      <figure class="shot">
-        <a href="https://github.com/Jashwanthjash001/llm-serving-optimization-lab" aria-label="Open the llm-serving-optimization-lab repo">
-          <img src="assets/serving-dashboard.png" width="1600" height="1005" loading="lazy"
-               alt="Serving-lab Streamlit dashboard — the latency-vs-throughput trade-off curve: aggregate throughput peaks at 238 tok/s at 8 concurrent requests, then TTFT spikes while throughput flatlines.">
-        </a>
-        <figcaption>The analysis dashboard — throughput climbs to 238&nbsp;tok/s, then the knee: latency spikes while throughput flatlines.</figcaption>
-      </figure>
       <div class="card-links">
         <a href="https://github.com/Jashwanthjash001/llm-serving-optimization-lab">Repo →</a>
         <a href="https://github.com/Jashwanthjash001/llm-serving-optimization-lab/blob/main/results/README.md">Results write-up →</a>
